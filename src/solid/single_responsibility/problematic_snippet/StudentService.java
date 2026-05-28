@@ -1,5 +1,7 @@
 package solid.single_responsibility.problematic_snippet;
 
+import solid.single_responsibility.Student;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
