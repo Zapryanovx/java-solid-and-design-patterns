@@ -1,4 +1,4 @@
-package solid.single_responsibility.solution;
+package solid.a_single_responsibility.solution;
 
 import java.io.FileWriter;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package solid.single_responsibility.solution;
+package solid.a_single_responsibility.solution;
 
 public class StudentValidator {
 

@@ -1,4 +1,4 @@
-package solid.single_responsibility.problematic_snippet;
+package solid.a_single_responsibility.problematic_snippet;
 
 public class Student {
     private final String name;

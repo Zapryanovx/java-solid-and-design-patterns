@@ -1,4 +1,4 @@
-package solid.single_responsibility.problematic_snippet;
+package solid.a_single_responsibility.problematic_snippet;
 
 import java.io.FileWriter;
 import java.io.IOException;

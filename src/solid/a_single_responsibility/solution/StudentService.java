@@ -1,6 +1,6 @@
-package solid.single_responsibility.solution;
+package solid.a_single_responsibility.solution;
 
-import solid.single_responsibility.Student;
+import solid.a_single_responsibility.Student;
 
 public class StudentService {
     private final StudentValidator validator;
