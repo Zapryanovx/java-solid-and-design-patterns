@@ -1,7 +1,5 @@
 package solid.single_responsibility.solution;
 
-import solid.single_responsibility.Student;
-
 import java.io.FileWriter;
 import java.io.IOException;
 
