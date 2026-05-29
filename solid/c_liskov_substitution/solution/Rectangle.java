@@ -1,19 +1,17 @@
-package solid.liskov_substitution.problematic_snippet;
+package solid.c_liskov_substitution.solution;
 
-public class Rectangle {
+public class Rectangle implements Shape {
     private double height;
     private double width;
-
-    public Rectangle() {
-    }
 
     public Rectangle(double height, double width) {
         this.height = height;
         this.width = width;
     }
 
+    @Override
     public double calcArea() {
-        return width * height;
+        return height * width;
     }
 
     public double getHeight() {

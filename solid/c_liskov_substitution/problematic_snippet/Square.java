@@ -1,4 +1,4 @@
-package solid.liskov_substitution.problematic_snippet;
+package solid.c_liskov_substitution.problematic_snippet;
 
 public class Square extends Rectangle {
     public Square(double side) {

@@ -1,4 +1,4 @@
-package solid.liskov_substitution.solution;
+package solid.c_liskov_substitution.solution;
 
 public class Main {
     static void main(String[] args) {
