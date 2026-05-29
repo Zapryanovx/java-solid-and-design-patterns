@@ -2,18 +2,18 @@ package solid.liskov_substitution.problematic_snippet;
 
 public class Rectangle {
     private double height;
-    private double weight;
+    private double width;
 
     public Rectangle() {
     }
 
-    public Rectangle(double height, double weight) {
+    public Rectangle(double height, double width) {
         this.height = height;
-        this.weight = weight;
+        this.width = width;
     }
 
     public double calcArea() {
-        return weight * height;
+        return width * height;
     }
 
     public double getHeight() {
@@ -24,11 +24,11 @@ public class Rectangle {
         this.height = height;
     }
 
-    public double getWeight() {
-        return weight;
+    public double getWidth() {
+        return width;
     }
 
-    public void setWeight(double weight) {
-        this.weight = weight;
+    public void setWidth(double width) {
+        this.width = width;
     }
 }

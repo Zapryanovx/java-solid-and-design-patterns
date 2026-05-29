@@ -8,12 +8,12 @@ public class Square extends Rectangle {
     @Override
     public void setHeight(double height) {
         super.setHeight(height);
-        super.setWeight(height);
+        super.setWidth(height);
     }
 
     @Override
-    public void setWeight(double weight) {
+    public void setWidth(double weight) {
         super.setHeight(weight);
-        super.setWeight(weight);
+        super.setWidth(weight);
     }
 }
