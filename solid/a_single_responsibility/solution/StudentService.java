@@ -1,7 +1,5 @@
 package solid.a_single_responsibility.solution;
 
-import solid.a_single_responsibility.Student;
-
 public class StudentService {
     private final StudentValidator validator;
     private final StudentFileWriter writer;
