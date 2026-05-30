@@ -1,4 +1,4 @@
-package design_patterns.creational.builder;
+﻿package design_patterns.creational.builder.with_director;
 
 import java.io.Serializable;
 
@@ -33,3 +33,4 @@ public class UserWebDTO implements UserDTO {
                "address=" + address;
     }
 }
+
