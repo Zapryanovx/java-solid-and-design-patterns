@@ -10,6 +10,9 @@ public class UserDTO {
 	private String address;
 	private String age;
 
+	private UserDTO() {
+	}
+
 	public String getName() {
 		return name;
 	}
