@@ -1,4 +1,4 @@
-package com.coffeepoweredcrew.simplefactory;
+package design_patterns.creational.simple_factory;
 
 /**
  * Represents a product information post. 

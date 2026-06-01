@@ -1,4 +1,4 @@
-package com.coffeepoweredcrew.simplefactory;
+package design_patterns.creational.simple_factory;
 
 /**
  * This class acts as a simple factory for creation of 
@@ -6,5 +6,12 @@ package com.coffeepoweredcrew.simplefactory;
  *
  */
 public class PostFactory {
-
+    public static Post  createPost(String type) {
+        return switch (type) {
+            case "blog" -> new BlogPost();
+            case "news" -> new NewsPost();
+            case "product" -> new ProductPost();
+            default -> throw new IllegalArgumentException("Invalid post type");
+        };
+    }
 }
