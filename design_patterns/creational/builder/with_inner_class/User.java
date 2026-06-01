@@ -1,4 +1,4 @@
-﻿package design_patterns.creational.builder.with_inner_class;
+package design_patterns.creational.builder.with_inner_class;
 
 import java.time.LocalDate;
 

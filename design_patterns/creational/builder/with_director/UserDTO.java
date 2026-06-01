@@ -1,4 +1,4 @@
-﻿package design_patterns.creational.builder.with_director;
+package design_patterns.creational.builder.with_director;
 
 public interface UserDTO {
 
