@@ -1,7 +1,7 @@
 package solid.c_liskov_substitution.solution;
 
 public class Main {
-    static void main(String[] args) {
+    public static void main(String[] args) {
         Rectangle r = new Rectangle(0, 0);
         r.setWidth(10);
         r.setHeight(5);

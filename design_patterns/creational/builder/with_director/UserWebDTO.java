@@ -12,14 +12,17 @@ public class UserWebDTO implements UserDTO {
         this.age = age;
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public String getAddress() {
         return address;
     }
 
+    @Override
     public String getAge() {
         return age;
     }

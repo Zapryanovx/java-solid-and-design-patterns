@@ -3,7 +3,7 @@ package solid.e_dependency_inversion.solution;
 public class OrderService {
     private final Database database;
 
-    OrderService(Database database) {
+    public OrderService(Database database) {
         this.database = database;
     }
 

@@ -7,7 +7,7 @@ import java.util.HashMap;
 public class StudentService {
     private final HashMap<String, Student> students;
 
-    StudentService() {
+    public StudentService() {
         this.students = new HashMap<>();
     }
 
