@@ -1,7 +1,7 @@
-package com.coffeepoweredcrew.abstractfactory2.aws;
+package design_patterns.creational.abstract_factory.aws;
 
-import com.coffeepoweredcrew.abstractfactory2.Instance;
-import com.coffeepoweredcrew.abstractfactory2.Storage;
+import design_patterns.creational.abstract_factory.Instance;
+import design_patterns.creational.abstract_factory.Storage;
 
 //Represents a concrete product in a family "Amazon Web services"
 public class Ec2Instance implements Instance {
@@ -18,7 +18,7 @@ public class Ec2Instance implements Instance {
 
     @Override
     public void attachStorage(Storage storage) {
-        System.out.println("Attached "+storage+" to Ec2Instance");
+        System.out.println("Attached " + storage + " to Ec2Instance");
     }
 
     @Override

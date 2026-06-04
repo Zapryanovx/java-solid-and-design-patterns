@@ -1,7 +1,7 @@
-package com.coffeepoweredcrew.abstractfactory2.gcp;
+package design_patterns.creational.abstract_factory.gcp;
 
-import com.coffeepoweredcrew.abstractfactory2.Instance;
-import com.coffeepoweredcrew.abstractfactory2.Storage;
+import design_patterns.creational.abstract_factory.Instance;
+import design_patterns.creational.abstract_factory.Storage;
 
 //Represents a concrete product in a family "Google Cloud Platform"
 public class GoogleComputeEngineInstance implements Instance {
@@ -18,7 +18,7 @@ public class GoogleComputeEngineInstance implements Instance {
 
     @Override
     public void attachStorage(Storage storage) {
-        System.out.println("Attached "+storage+" to Compute engine instance");
+        System.out.println("Attached " + storage + " to Compute engine instance");
     }
 
     @Override

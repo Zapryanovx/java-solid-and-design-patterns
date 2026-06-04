@@ -1,11 +1,19 @@
-package com.coffeepoweredcrew.abstractfactory2.gcp;
+package design_patterns.creational.abstract_factory.gcp;
 
-import com.coffeepoweredcrew.abstractfactory2.Instance;
-import com.coffeepoweredcrew.abstractfactory2.ResourceFactory;
-import com.coffeepoweredcrew.abstractfactory2.Storage;
+import design_patterns.creational.abstract_factory.Instance;
+import design_patterns.creational.abstract_factory.ResourceFactory;
+import design_patterns.creational.abstract_factory.Storage;
 
-//Factory implementation for Google cloud platform resources
+//Factory implementation for Google Cloud Platform resources
 public class GoogleResourceFactory implements ResourceFactory {
 
+    @Override
+    public Instance createInstance(Instance.Capacity capacity) {
+        return new GoogleComputeEngineInstance(capacity);
+    }
 
+    @Override
+    public Storage createStorage(int capacityInMib) {
+        return new GoogleCloudStorage(capacityInMib);
+    }
 }

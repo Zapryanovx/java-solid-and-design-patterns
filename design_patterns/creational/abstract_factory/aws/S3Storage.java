@@ -1,13 +1,13 @@
-package com.coffeepoweredcrew.abstractfactory2.aws;
+package design_patterns.creational.abstract_factory.aws;
 
-import com.coffeepoweredcrew.abstractfactory2.Storage;
+import design_patterns.creational.abstract_factory.Storage;
 
 //Represents a concrete product in a family "Amazon Web Services"
 public class S3Storage implements Storage {
 
     public S3Storage(int capacityInMib) {
         //Use aws s3 api
-        System.out.println("Allocated "+capacityInMib+" on S3");
+        System.out.println("Allocated " + capacityInMib + " on S3");
     }
 
     @Override

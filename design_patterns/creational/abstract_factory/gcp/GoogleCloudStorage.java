@@ -1,13 +1,13 @@
-package com.coffeepoweredcrew.abstractfactory2.gcp;
+package design_patterns.creational.abstract_factory.gcp;
 
-import com.coffeepoweredcrew.abstractfactory2.Storage;
+import design_patterns.creational.abstract_factory.Storage;
 
 //Represents a concrete product in a family "Google Cloud Platform"
 public class GoogleCloudStorage implements Storage {
 
     public GoogleCloudStorage(int capacityInMib) {
         //Use gcp api
-        System.out.println("Allocated "+capacityInMib+" on Google Cloud Storage");
+        System.out.println("Allocated " + capacityInMib + " on Google Cloud Storage");
     }
 
     @Override

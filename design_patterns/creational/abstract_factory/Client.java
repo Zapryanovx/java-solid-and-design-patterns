@@ -1,12 +1,11 @@
-package com.coffeepoweredcrew.abstractfactory2;
+package design_patterns.creational.abstract_factory;
 
-import com.coffeepoweredcrew.abstractfactory2.aws.AwsResourceFactory;
-import com.coffeepoweredcrew.abstractfactory2.gcp.GoogleResourceFactory;
+import design_patterns.creational.abstract_factory.aws.AwsResourceFactory;
+import design_patterns.creational.abstract_factory.gcp.GoogleResourceFactory;
 
 public class Client {
 
     public static void main(String[] args) {
-    	
-    }
 
+    }
 }

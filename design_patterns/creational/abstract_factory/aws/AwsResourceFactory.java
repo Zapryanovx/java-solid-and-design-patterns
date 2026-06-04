@@ -1,10 +1,19 @@
-package com.coffeepoweredcrew.abstractfactory2.aws;
+package design_patterns.creational.abstract_factory.aws;
 
-import com.coffeepoweredcrew.abstractfactory2.Instance;
-import com.coffeepoweredcrew.abstractfactory2.ResourceFactory;
-import com.coffeepoweredcrew.abstractfactory2.Storage;
-//Factory implementation for Google cloud platform resources
+import design_patterns.creational.abstract_factory.Instance;
+import design_patterns.creational.abstract_factory.ResourceFactory;
+import design_patterns.creational.abstract_factory.Storage;
+
+//Factory implementation for Amazon Web Services resources
 public class AwsResourceFactory implements ResourceFactory {
 
+    @Override
+    public Instance createInstance(Instance.Capacity capacity) {
+        return new Ec2Instance(capacity);
+    }
 
+    @Override
+    public Storage createStorage(int capacityInMib) {
+        return new S3Storage(capacityInMib);
+    }
 }
