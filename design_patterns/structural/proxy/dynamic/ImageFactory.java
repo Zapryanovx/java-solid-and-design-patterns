@@ -8,11 +8,11 @@ import design_patterns.structural.proxy.Image;
 public class ImageFactory {
     //We'll provide proxy to caller instead of real object
 
-    public static Image getImage() {
-    	return (Image) Proxy.newProxyInstance(
+    public static Image getImage(String name) {
+        return (Image) Proxy.newProxyInstance(
                 ImageFactory.class.getClassLoader(),
                 new Class[] {Image.class},
-                new ImageInvocationHandler()
+                new ImageInvocationHandler(name)
         );
     }
 }
