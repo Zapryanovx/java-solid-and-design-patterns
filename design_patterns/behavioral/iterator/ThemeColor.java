@@ -8,22 +8,22 @@ public enum ThemeColor {
     BLACK,
     WHITE;
 
-	public static Iterator<ThemeColor> getIterator() {
-		return new ThemeColorIterator();
-	}
+    public static Iterator<ThemeColor> getIterator() {
+        return new ThemeColorIterator();
+    }
 
-	private static class ThemeColorIterator implements Iterator<ThemeColor> {
+    private static class ThemeColorIterator implements Iterator<ThemeColor> {
 
-		private int position;
+        private int position;
 
-		@Override
-		public boolean hasNext() {
-			return position < values().length;
-		}
+        @Override
+        public boolean hasNext() {
+            return position < values().length;
+        }
 
-		@Override
-		public ThemeColor next() {
-			return values()[position++];
-		}
-	}
+        @Override
+        public ThemeColor next() {
+            return values()[position++];
+        }
+    }
 }
