@@ -169,31 +169,69 @@ Rendered A1.bmp
 ```java
 public class ImageInvocationHandler implements InvocationHandler {
 
+    private BitmapImage image;
+    private String name;
+    private Point2D location;
+
+    public ImageInvocationHandler(String name) {
+        this.name = name;
+    }
+
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         Method setLocationMethod = Image.class.getMethod("setLocation", new Class[]{Point2D.class});
+        Method getLocationMethod = Image.class.getMethod("getLocation");
+        Method renderMethod = Image.class.getMethod("render");
+
         if (setLocationMethod.equals(method)) {
             Point2D point2d = (Point2D) args[0];
             System.out.println("From InvocationHandler: " + point2d);
+            if (image != null) {
+                image.setLocation(point2d);
+            } else {
+                location = point2d;
+            }
+            return null;
         }
+
+        if (getLocationMethod.equals(method)) {
+            if (image != null) {
+                return image.getLocation();
+            }
+            return location;
+        }
+
+        if (renderMethod.equals(method)) {
+            if (image == null) {
+                image = new BitmapImage(name);
+                if (location != null) {
+                    image.setLocation(location);
+                }
+            }
+            image.render();
+            return null;
+        }
+
         return null;
     }
 }
 ```
 
+Същата lazy-loading логика като в `ImageProxy` (буфериран `location`, lazy `image`), само че решението "кой метод е извикан" става чрез сравняване на `Method` обекти вместо чрез `@Override` имплементации. Допълнително - всяко `setLocation` се логва през `System.out.println("From InvocationHandler: ...")`, преди да се обработи.
+
 - `Image.class.getMethod("setLocation", new Class[]{Point2D.class})` - reflection lookup на `Method` обекта, описващ `setLocation(Point2D)`.
 - `setLocationMethod.equals(method)` - проверка кой метод реално е извикан на проксирания обект.
-- За `setLocation` - принтира подадената точка. За `getLocation`/`render` - връща `null` (т.е. не прави нищо).
 
 ### `ImageFactory`
 
 ```java
 public class ImageFactory {
-    public static Image getImage() {
+    public static Image getImage(String name) {
         return (Image) Proxy.newProxyInstance(
                 ImageFactory.class.getClassLoader(),
                 new Class[] {Image.class},
-                new ImageInvocationHandler());
+                new ImageInvocationHandler(name)
+        );
     }
 }
 ```
@@ -203,13 +241,21 @@ public class ImageFactory {
 ### Употреба (`dynamic.Client`)
 
 ```java
-Image img = ImageFactory.getImage();
+Image img = ImageFactory.getImage("A1.bmp");
 img.setLocation(new Point2D(-10, 0));
+
+System.out.println(img.getLocation());
+System.out.println("-----------------------");
+img.render();
 ```
 
 Изход:
 ```
 From InvocationHandler: Point2D [x=-10.0, y=0.0]
+Point2D [x=-10.0, y=0.0]
+-----------------------
+Loaded from disk:A1.bmp
+Rendered A1.bmp
 ```
 
 ---
@@ -231,4 +277,4 @@ From InvocationHandler: Point2D [x=-10.0, y=0.0]
 - **Import shadowing**: explicit `import` за клас със същото име като друг (`java.awt.Image` срещу твоя `Image`) "засенчва" wildcard import-а - грешният избор води до `NoSuchMethodException` при `getMethod(...)`.
 - **`UndeclaredThrowableException`**: ако `InvocationHandler.invoke()` хвърли checked exception, който интерфейсният метод не декларира с `throws`, JVM-ът го опакова в `UndeclaredThrowableException`.
 - **Encapsulation**: за да работи Proxy коректно, клиентът не трябва да може да направи `new BitmapImage(...)` директно (package-private конструктор/клас или factory) - иначе заобикаля lazy-loading/protection логиката.
-- Двата `ImageFactory` класа (в `virtual` и `dynamic`) имат **еднакво име** - ако `Client` импортира грешния, ще извика грешната имплементация без compile error (виж разликата в сигнатурата - `getImage(String)` срещу `getImage()`).
+- Двата `ImageFactory` класа (в `virtual` и `dynamic`) имат **еднакво име и сигнатура** (`getImage(String)`) - ако `Client` импортира грешния, ще извика грешната имплементация (static вместо dynamic proxy или обратно) без compile error, само различен runtime изход.
