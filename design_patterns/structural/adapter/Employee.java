@@ -5,34 +5,34 @@ package design_patterns.structural.adapter;
  */
 public class Employee {
 
-	private String fullName;
-	
-	private String jobTitle;
-	
-	private String officeLocation;
+    private String fullName;
 
-	public String getFullName() {
-		return fullName;
-	}
+    private String jobTitle;
 
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
-	}
+    private String officeLocation;
 
-	public String getJobTitle() {
-		return jobTitle;
-	}
+    public String getFullName() {
+        return fullName;
+    }
 
-	public void setJobTitle(String jobTitle) {
-		this.jobTitle = jobTitle;
-	}
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
 
-	public String getOfficeLocation() {
-		return officeLocation;
-	}
+    public String getJobTitle() {
+        return jobTitle;
+    }
 
-	public void setOfficeLocation(String officeLocation) {
-		this.officeLocation = officeLocation;
-	}
-	
+    public void setJobTitle(String jobTitle) {
+        this.jobTitle = jobTitle;
+    }
+
+    public String getOfficeLocation() {
+        return officeLocation;
+    }
+
+    public void setOfficeLocation(String officeLocation) {
+        this.officeLocation = officeLocation;
+    }
+
 }

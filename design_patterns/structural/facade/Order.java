@@ -2,30 +2,29 @@ package design_patterns.structural.facade;
 
 public class Order {
 
-	private String id;
-	
-	private double total;
+    private String id;
 
-	public Order(String id, double total) {
-		this.id = id;
-		this.total =total;
-	}
-	
-	public String getId() {
-		return id;
-	}
+    private double total;
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public Order(String id, double total) {
+        this.id = id;
+        this.total = total;
+    }
 
-	public double getTotal() {
-		return total;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public void setTotal(double total) {
-		this.total = total;
-	}
-	
-	
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
 }

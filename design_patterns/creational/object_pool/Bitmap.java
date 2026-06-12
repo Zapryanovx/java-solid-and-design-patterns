@@ -13,7 +13,7 @@ public class Bitmap implements Image {
 
     @Override
     public void draw() {
-        System.out.println("Drawing "+name+" @ "+location);
+        System.out.println("Drawing " + name + " @ " + location);
     }
 
     @Override

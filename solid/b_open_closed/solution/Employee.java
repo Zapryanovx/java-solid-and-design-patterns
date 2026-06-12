@@ -1,7 +1,5 @@
 package solid.b_open_closed.solution;
 
-import solid.b_open_closed.solution.Position;
-
 public abstract class Employee {
     private final String name;
     private final Position position;

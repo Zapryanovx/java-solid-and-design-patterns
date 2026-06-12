@@ -2,16 +2,16 @@ package design_patterns.creational.object_pool;
 
 public class Point2D {
 
-	private float x, y;
-	
-	public Point2D(float x, float y) {
-		this.x = x;
-		this.y = y;
-	}
+    private float x, y;
 
-	@Override
-	public String toString() {
-		return "Point2D [x=" + x + ", y=" + y + "]";
-	}
-	
+    public Point2D(float x, float y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    @Override
+    public String toString() {
+        return "Point2D [x=" + x + ", y=" + y + "]";
+    }
+
 }

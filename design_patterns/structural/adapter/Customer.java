@@ -5,10 +5,9 @@ package design_patterns.structural.adapter;
  */
 public interface Customer {
 
-	String getName();
-	
-	String getDesignation();
-	
-	String getAddress();
-}
+    String getName();
 
+    String getDesignation();
+
+    String getAddress();
+}

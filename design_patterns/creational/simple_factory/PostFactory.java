@@ -1,12 +1,11 @@
 package design_patterns.creational.simple_factory;
 
 /**
- * This class acts as a simple factory for creation of 
+ * This class acts as a simple factory for creation of
  * different posts on web site.
- *
  */
 public class PostFactory {
-    public static Post  createPost(String type) {
+    public static Post createPost(String type) {
         return switch (type) {
             case "blog" -> new BlogPost();
             case "news" -> new NewsPost();

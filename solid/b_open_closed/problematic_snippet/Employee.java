@@ -15,7 +15,7 @@ public class Employee {
 
     public double calculateSalary(Employee e) {
         if (e.getPosition() == Position.DEVELOPER) {
-            return e.getPosition().getBaseSalary()  * DEVELOPER_COEFF;
+            return e.getPosition().getBaseSalary() * DEVELOPER_COEFF;
         } else if (e.getPosition() == Position.MANAGER) {
             return e.getPosition().getBaseSalary() * MANAGER_COEFF;
         }

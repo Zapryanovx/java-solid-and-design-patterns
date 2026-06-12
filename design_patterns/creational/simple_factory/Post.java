@@ -3,60 +3,57 @@ package design_patterns.creational.simple_factory;
 import java.time.LocalDateTime;
 
 /**
- * Abstract post class. Represents a generic post on a web site. 
+ * Abstract post class. Represents a generic post on a web site.
  */
 public abstract class Post {
 
-	private Long id;
-	
-	private String title; 
-	
-	private String content;
-	
-	private LocalDateTime createdOn;
-	
-	private LocalDateTime publishedOn;
+    private Long id;
 
-	
-	public Long getId() {
-		return id;
-	}
+    private String title;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    private String content;
 
-	public String getTitle() {
-		return title;
-	}
+    private LocalDateTime createdOn;
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	
-	public String getContent() {
-		return content;
-	}
+    private LocalDateTime publishedOn;
 
-	public void setContent(String content) {
-		this.content = content;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public LocalDateTime getCreatedOn() {
-		return createdOn;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setCreatedOn(LocalDateTime createdOn) {
-		this.createdOn = createdOn;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public LocalDateTime getPublishedOn() {
-		return publishedOn;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public void setPublishedOn(LocalDateTime publishedOn) {
-		this.publishedOn = publishedOn;
-	}
-	
-	
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public LocalDateTime getCreatedOn() {
+        return createdOn;
+    }
+
+    public void setCreatedOn(LocalDateTime createdOn) {
+        this.createdOn = createdOn;
+    }
+
+    public LocalDateTime getPublishedOn() {
+        return publishedOn;
+    }
+
+    public void setPublishedOn(LocalDateTime publishedOn) {
+        this.publishedOn = publishedOn;
+    }
 }

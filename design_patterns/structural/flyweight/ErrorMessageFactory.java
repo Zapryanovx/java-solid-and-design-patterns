@@ -15,24 +15,24 @@ public class ErrorMessageFactory {
         return FACTORY;
     }
 
-	private Map<ErrorType, SystemErrorMessage> errorMessages = new HashMap<>();
+    private Map<ErrorType, SystemErrorMessage> errorMessages = new HashMap<>();
 
     private ErrorMessageFactory() {
-		errorMessages.put(
-				ErrorType.GenericSystemError,
-				new SystemErrorMessage("A generic error of type $errorCode occured. Please refer to:\n",
-						"http://google.com/q=")
-		);
-		errorMessages.put(
-				ErrorType.PageNotFoundError,
-				new SystemErrorMessage("Page not found. An error of type $errorCode occured. Please refer to:\n",
-						"http://google.com/q=")
-		);
+        errorMessages.put(
+                ErrorType.GenericSystemError,
+                new SystemErrorMessage("A generic error of type $errorCode occured. Please refer to:\n",
+                        "http://google.com/q=")
+        );
+        errorMessages.put(
+                ErrorType.PageNotFoundError,
+                new SystemErrorMessage("Page not found. An error of type $errorCode occured. Please refer to:\n",
+                        "http://google.com/q=")
+        );
     }
 
-	public SystemErrorMessage getError(ErrorType errorType) {
-		return errorMessages.get(errorType);
-	}
+    public SystemErrorMessage getError(ErrorType errorType) {
+        return errorMessages.get(errorType);
+    }
 
     public UserBannedErrorMessage getUserBannedMessage(String caseId) {
         return new UserBannedErrorMessage(caseId);
