@@ -1,4 +1,8 @@
-package design_patterns.structural.proxy;
+package design_patterns.structural.proxy.virtual;
+
+import design_patterns.structural.proxy.BitmapImage;
+import design_patterns.structural.proxy.Image;
+import design_patterns.structural.proxy.Point2D;
 
 //Proxy class.
 public class ImageProxy implements Image {

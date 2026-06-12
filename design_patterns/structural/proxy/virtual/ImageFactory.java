@@ -1,4 +1,6 @@
-package design_patterns.structural.proxy;
+package design_patterns.structural.proxy.virtual;
+
+import design_patterns.structural.proxy.Image;
 
 //Factory to get image objects.
 public class ImageFactory {
