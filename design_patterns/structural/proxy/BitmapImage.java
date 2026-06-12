@@ -8,7 +8,7 @@ public class BitmapImage implements Image {
 
     public BitmapImage(String filename) {
         //Loads image from file on disk
-        System.out.println("Loaded from disk:" + filename);
+         System.out.println("Loaded from disk:" + filename);
         name = filename;
     }
 
