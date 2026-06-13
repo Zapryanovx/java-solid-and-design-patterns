@@ -10,7 +10,8 @@ public class TextBox implements UIControl {
         this.mediator.register(this);
     }
 
-    public void setText(String text) {
+    @Override
+    public void setControlValue(String text) {
         this.text = text;
         mediator.valueChanged(this);
     }

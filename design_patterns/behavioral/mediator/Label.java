@@ -10,7 +10,8 @@ public class Label implements UIControl {
         mediator.register(this);
     }
 
-    public void setText(String text) {
+    @Override
+    public void setControlValue(String text) {
         this.text = text;
         mediator.valueChanged(this);
     }

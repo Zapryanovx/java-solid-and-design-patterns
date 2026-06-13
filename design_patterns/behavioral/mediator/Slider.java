@@ -10,7 +10,8 @@ public class Slider implements UIControl {
         mediator.register(this);
     }
 
-    public void setValue(String text) {
+    @Override
+    public void setControlValue(String text) {
         this.text = text;
         mediator.valueChanged(this);
     }
