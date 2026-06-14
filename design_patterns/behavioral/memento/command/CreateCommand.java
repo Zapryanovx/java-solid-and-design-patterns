@@ -4,7 +4,7 @@ import design_patterns.behavioral.memento.WorkflowDesigner;
 
 public class CreateCommand extends AbstractWorkflowCommand {
 
-    private String name;
+    private final String name;
 
     public CreateCommand(WorkflowDesigner designer, String name) {
         super(designer);
@@ -16,5 +16,4 @@ public class CreateCommand extends AbstractWorkflowCommand {
         this.memento = receiver.getMemento();
         receiver.createWorkflow(name);
     }
-
 }

@@ -4,7 +4,7 @@ import design_patterns.behavioral.memento.WorkflowDesigner;
 
 public class RemoveStepCommand extends AbstractWorkflowCommand {
 
-    private String step;
+    private final String step;
 
     public RemoveStepCommand(WorkflowDesigner designer, String step) {
         super(designer);
