@@ -3,9 +3,9 @@ package design_patterns.behavioral.chain_of_responsibility;
 //Abstract handler
 public abstract class Employee implements LeaveApprover {
 
-    private String role;
+    private final String role;
 
-    private LeaveApprover successor;
+    private final LeaveApprover successor;
 
     public Employee(String role, LeaveApprover successor) {
         this.role = role;
