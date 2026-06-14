@@ -5,9 +5,9 @@ import java.util.LinkedList;
 
 public class Workflow {
 
-    private LinkedList<String> steps;
+    private final LinkedList<String> steps;
 
-    private String name;
+    private final String name;
 
     public Workflow(String name) {
         this.name = name;

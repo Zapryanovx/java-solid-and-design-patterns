@@ -6,7 +6,7 @@ public abstract class AbstractWorkflowCommand implements WorkflowCommand {
 
     protected WorkflowDesigner.Memento memento;
 
-    protected WorkflowDesigner receiver;
+    protected final WorkflowDesigner receiver;
 
     public AbstractWorkflowCommand(WorkflowDesigner designer) {
         this.receiver = designer;

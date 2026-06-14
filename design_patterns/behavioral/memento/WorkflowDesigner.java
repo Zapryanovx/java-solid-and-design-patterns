@@ -39,13 +39,15 @@ public class WorkflowDesigner {
         System.out.println(workflow);
     }
 
-    // Memento
-    public class Memento {
+    //Memento
+    public static class Memento {
 
-        private String[] steps;
-        private String name;
+        private final String[] steps;
+        private final String name;
 
         private Memento() {
+            this.steps = null;
+            this.name = null;
         }
 
         private Memento(String[] steps, String name) {
