@@ -12,4 +12,9 @@ public class Programmer extends AbstractEmployee {
     public String getSkill() {
         return skill;
     }
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 }

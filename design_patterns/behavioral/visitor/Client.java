@@ -3,7 +3,9 @@ package design_patterns.behavioral.visitor;
 public class Client {
 
     public static void main(String[] args) {
-
+        Employee emps = buildOrganization();
+        Visitor visitor = new PrintVisitor();
+        visitOrgStructure(emps, visitor);
     }
 
     private static Employee buildOrganization() {
@@ -22,5 +24,10 @@ public class Client {
         VicePresident vp = new VicePresident("Richard", m1, m2);
 
         return vp;
+    }
+
+    private static void visitOrgStructure(Employee emp, Visitor visitor) {
+        emp.accept(visitor);
+        emp.getDirectReports().stream().forEach(e -> visitOrgStructure(e, visitor));
     }
 }
