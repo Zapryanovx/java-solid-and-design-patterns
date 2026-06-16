@@ -1,14 +1,14 @@
-package com.coffeepoweredcrew.nullobject;
+package design_patterns.behavioral.null_object;
 
 public class Report {
 
-	private String name;
-	
-	public Report(String name) {
-		this.name = name;
-	}
-	
-	public String getName() {
-		return name;
-	}
+    private final String name;
+
+    public Report(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
