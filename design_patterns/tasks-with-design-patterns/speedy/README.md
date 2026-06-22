@@ -1,86 +1,86 @@
-# Courier Company Simulation
+# Симулация на куриерска фирма
 
-A multithreaded Java simulation of a courier company's daily operations. The system models the full lifecycle of shipments — from creation and warehouse storage to delivery and client notification.
+Многонишкова Java симулация на ежедневната работа на куриерска фирма. Системата моделира пълния жизнен цикъл на пратките - от създаване и складиране до доставка и известяване на клиента.
 
-## Design Patterns Used
+## Използвани Design Patterns
 
-- **Builder** — `Address` construction with `AddressBuilder`
-- **Strategy** — interchangeable pricing algorithms via `PriceStrategy`
-- **Observer** — clients receive delivery notifications via `DeliveryObserver`
-- **Singleton** — centralized logging through `DeliveryLogger`
-- **Factory** — shipment creation and logging via `ShipmentFactory`
+- **Builder** - конструиране на `Address` чрез `AddressBuilder`
+- **Strategy** - взаимозаменяеми алгоритми за ценообразуване чрез `PriceStrategy`
+- **Observer** - клиентите получават известия за доставка чрез `DeliveryObserver`
+- **Singleton** - централизирано логване чрез `DeliveryLogger`
+- **Factory** - създаване и логване на пратки чрез `ShipmentFactory`
 
-## Overview
+## Общ преглед
 
-The goal is to simulate how a courier company receives, stores, routes, and delivers shipments. The simulation emphasizes correct use of OOP principles, design patterns, and concurrent programming with threads.
+Целта е да се симулира как куриерска фирма приема, съхранява, маршрутизира и доставя пратки. Симулацията акцентира върху коректното използване на ООП принципи, design patterns и конкурентно програмиране с нишки.
 
-## Domain Model
+## Домейн модел
 
-### Shipments
+### Пратки
 
-The core entity in the system. Each shipment has:
+Основната единица в системата. Всяка пратка притежава:
 
-- A unique auto-generated identifier
-- A weight (in grams)
-- A type that determines both its priority in processing queues and its delivery duration:
-  - **Express** — highest priority, fastest delivery
-  - **Fragile** — medium priority, slowest delivery (requires careful handling)
-  - **Standard** — lowest priority, moderate delivery time
-- A label containing the destination address, receiver name, and barcode
-- A price calculated at creation time using a configurable pricing strategy
-- A reference to the client who sent it
+- Уникален автоматично генериран идентификатор
+- Тегло (в грамове)
+- Тип, който определя както приоритета в опашката за обработка, така и времето за доставка:
+  - **Express** - най-висок приоритет, най-бърза доставка
+  - **Fragile** - среден приоритет, най-бавна доставка (изисква внимателно боравене)
+  - **Standard** - най-нисък приоритет, умерено време за доставка
+- Етикет, съдържащ адрес на получателя, име на получателя и баркод
+- Цена, изчислена при създаването чрез конфигурируема ценова стратегия
+- Референция към клиента, изпратил пратката
 
-### Clients
+### Клиенти
 
-Clients send shipments and receive real-time notifications when their deliveries are completed. They are uniquely identified by a personal identification number (PIN), which is never exposed externally.
+Клиентите изпращат пратки и получават известия в реално време при успешна доставка. Идентифицират се уникално по ЕГН, което никога не се експозва навън.
 
-### Warehouses
+### Складове
 
-Warehouses act as intermediate storage before shipments are picked up by couriers. Each warehouse:
+Складовете служат като междинно хранилище преди куриерите да вземат пратките. Всеки склад:
 
-- Is located at a specific address
-- Has a fixed capacity (maximum number of shipments it can hold)
-- Stores shipments in a priority queue, so express shipments are always processed first
-- When full, incoming shipments are rerouted to another warehouse. If no warehouse has space, the shipment is rejected
+- Намира се на конкретен адрес
+- Има фиксиран капацитет (максимален брой пратки, които може да побере)
+- Съхранява пратките в приоритетна опашка - експресните пратки винаги се обработват първи
+- Когато е пълен, входящите пратки се пренасочват към друг склад. Ако няма наличен склад - пратката се отказва
 
-### Couriers
+### Куриери
 
-Each courier operates on a dedicated thread and is responsible for a specific route (city). A courier:
+Всеки куриер работи в отделна нишка и отговаря за конкретен маршрут (град). Куриерът:
 
-- Has a weight limit determining how many shipments they can carry
-- Picks up shipments from a warehouse that match their route and fit within their weight capacity
-- Delivers shipments sequentially, with delivery time proportional to the shipment type
-- Notifies the client upon successful delivery
+- Има ограничена товароносимост, определяща колко пратки може да носи
+- Взима от склада пратки, които съвпадат с маршрута му и се вместват в товароносимостта
+- Доставя пратките последователно, като времето за доставка зависи от типа на пратката
+- Известява клиента при успешна доставка
 
-### Company
+### Фирма
 
-The company orchestrates the entire operation. It manages a list of warehouses and handles shipment routing logic — first attempting to place a shipment in a warehouse in the destination city, then falling back to any available warehouse, and finally rejecting the shipment if all warehouses are full.
+Фирмата оркестрира цялата операция. Управлява списък от складове и се грижи за маршрутизацията на пратките - първо опитва да постави пратката в склад в целевия град, след това в произволен наличен склад, и накрая я отказва ако всички складове са пълни.
 
-## Pricing Strategies
+## Стратегии за ценообразуване
 
-The system supports multiple interchangeable pricing strategies (Strategy pattern):
+Системата поддържа множество взаимозаменяеми ценови стратегии (Strategy pattern):
 
-- **Weight-based** — base cost plus a rate proportional to shipment weight
-- **Priority-based** — cost scales with shipment priority level
-- **Destination-based** — price determined by the destination city, with a default for unlisted cities
+- **По тегло** - базова цена плюс процент от теглото на пратката
+- **По приоритет** - цената зависи от приоритетното ниво на пратката
+- **По дестинация** - цената се определя от целевия град, с фиксирана цена за неизброени градове
 
-## Logging
+## Логване
 
-All significant events are logged in real time to both the console and a log file. Logged events include:
+Всички значими събития се записват в реално време в конзолата и във файл. Логвани събития:
 
-- Shipment creation
-- Shipment added to a warehouse
-- Shipment rerouted to a different warehouse
-- Shipment rejected (no available warehouse)
-- Delivery started and completed
-- Client notification
+- Създаване на пратка
+- Добавяне на пратка в склад
+- Пренасочване на пратка към друг склад
+- Отказване на пратка (няма наличен склад)
+- Начало и край на доставка
+- Известяване на клиент
 
-## Simulation
+## Симулация
 
-The simulation creates at least 100 shipments at regular intervals. Multiple couriers operate in parallel, each on their own thread, processing shipments from their assigned warehouses. The simulation ends when all shipments have been either delivered or rejected.
+Симулацията създава поне 100 пратки през фиксиран интервал от време. Множество куриери работят паралелно, всеки в своя нишка, обработвайки пратки от съответните си складове. Симулацията приключва, когато всички пратки са обработени или отказани.
 
-## Tech
+## Технологии
 
 - Java 21+
-- Concurrency: `ExecutorService`, `ScheduledExecutorService`, `ConcurrentLinkedQueue`, `PriorityQueue` with synchronization, `AtomicInteger`
-- No external dependencies
+- Конкурентност: `ExecutorService`, `ScheduledExecutorService`, `ConcurrentLinkedQueue`, `PriorityQueue` със синхронизация, `AtomicInteger`
+- Без външни зависимости
